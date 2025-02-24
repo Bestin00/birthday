@@ -2,28 +2,32 @@ let images = ["image1.jpg", "image2.jpg", "image3.jpg"];
 let currentIndex = 0;
 let lanternInterval;
 
-// Show content and start animations when button is clicked
 document.getElementById("showButton").addEventListener("click", function () {
     let content = document.getElementById("content");
-    content.style.display = "block";  
-    content.style.opacity = "1"; // Ensures content is visible
+    content.style.display = "flex";  // Ensures proper layout
+    setTimeout(() => {
+        content.style.opacity = "1";  // Smooth fade-in effect
+    }, 100);
+    
     this.style.display = "none"; // Hide the button itself
 
-    // Force images to reload
     let slideImage = document.getElementById("slideImage");
     slideImage.src = images[0]; // Reset to first image
 
     playMusic();
 });
 
-// Function to change images in slideshow
+// Slideshow logic
+let images = ["image1.jpg", "image2.jpg", "image3.jpg"];
+let currentIndex = 0;
+
 function changeImage() {
     currentIndex = (currentIndex + 1) % images.length;
     document.getElementById("slideImage").src = images[currentIndex];
 }
 setInterval(changeImage, 3000);
 
-// Play music and start animations
+// Play music and start lanterns
 function playMusic() {
     let song = document.getElementById("birthdaySong");
     song.play();
@@ -35,11 +39,9 @@ function playMusic() {
     startLanterns();
 }
 
-// ✨ Create Floating Lanterns
+// Lantern animations
 function startLanterns() {
-    if (!lanternInterval) {
-        lanternInterval = setInterval(createLantern, 1000);
-    }
+    setInterval(createLantern, 1000);
 }
 
 function createLantern() {
