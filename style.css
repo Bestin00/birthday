@@ -10,16 +10,19 @@ body {
     width: 100vw;
 }
 
-/* Ensure proper alignment */
-#content {
-    display: none;  
-    opacity: 0;
-    transition: opacity 1s ease-in-out;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    text-align: center;
-    width: 100%;
+.container {
+    margin-top: 100px;
+    display: none; /* Hidden initially */
+}
+
+h1 {
+    color: #ffcc00;
+    font-size: 3rem;
+}
+
+p {
+    font-size: 1.5rem;
+    color: #eee;
 }
 
 /* Button */
@@ -57,7 +60,7 @@ button:hover {
     transition: opacity 1s ease-in-out;
 }
 
-/* Floating Lanterns */
+/* ✨ Floating Lanterns */
 #lantern-container {
     position: fixed;
     top: 0;
@@ -66,7 +69,7 @@ button:hover {
     height: 100%;
     pointer-events: none;
     z-index: 5;
-    overflow: visible;
+    overflow: visible; /* Ensure lanterns are not cut off */
 }
 
 .lantern {
@@ -90,4 +93,15 @@ button:hover {
         transform: translateY(-120vh);
         opacity: 0;
     }
+}
+
+#content {
+    display: none;  /* Hidden initially */
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    width: 100%;
 }
