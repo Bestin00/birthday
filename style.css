@@ -6,6 +6,8 @@ body {
     margin: 0;
     overflow: hidden;
     position: relative;
+    height: 100vh;
+    width: 100vw;
 }
 
 .container {
@@ -35,6 +37,7 @@ button {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    z-index: 10;
 }
 
 button:hover {
@@ -58,35 +61,38 @@ button:hover {
 }
 
 /* ✨ Floating Lanterns */
-.lantern {
-    position: fixed;
-    bottom: 0;
-    width: 40px;
-    height: 60px;
-    background: radial-gradient(circle, #ffcc00, #ff6600);
-    border-radius: 10px;
-    opacity: 0.8;
-    animation: floatUp linear infinite;
-}
-
-@keyframes floatUp {
-    0% {
-        transform: translateY(0);
-        opacity: 1;
-    }
-    100% {
-        transform: translateY(-100vh);
-        opacity: 0;
-    }
-}
-
-.lantern-container {
+#lantern-container {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     pointer-events: none;
+    z-index: 5;
+    overflow: visible; /* Ensure lanterns are not cut off */
+}
+
+.lantern {
+    position: fixed;
+    bottom: -50px;
+    width: 40px;
+    height: 60px;
+    background: radial-gradient(circle, #ffcc00, #ff6600);
+    border-radius: 10px;
+    opacity: 0.9;
+    animation: floatUp linear infinite;
+}
+
+/* Lantern Animation */
+@keyframes floatUp {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-120vh);
+        opacity: 0;
+    }
 }
 
 /* Hide content initially */
