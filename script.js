@@ -1,31 +1,34 @@
 let images = ["image1.jpg", "image2.jpg", "image3.jpg"];
 let currentIndex = 0;
 let lanternInterval;
+let imageInterval;
 
 document.getElementById("showButton").addEventListener("click", function () {
     let content = document.getElementById("content");
-    content.style.display = "flex";  // Ensures proper layout
+    content.style.display = "flex";  // Ensure it's visible
+
     setTimeout(() => {
-        content.style.opacity = "1";  // Smooth fade-in effect
+        content.style.opacity = "1";  // Smooth fade-in
     }, 100);
     
-    this.style.display = "none"; // Hide the button itself
+    this.style.display = "none"; // Hide button
 
     let slideImage = document.getElementById("slideImage");
-    slideImage.src = images[0]; // Reset to first image
+    slideImage.src = images[0]; // Reset slideshow
 
     playMusic();
+    startSlideshow();
 });
 
 // Slideshow logic
-let images = ["image1.jpg", "image2.jpg", "image3.jpg"];
-let currentIndex = 0;
-
-function changeImage() {
-    currentIndex = (currentIndex + 1) % images.length;
-    document.getElementById("slideImage").src = images[currentIndex];
+function startSlideshow() {
+    if (imageInterval) clearInterval(imageInterval);
+    
+    imageInterval = setInterval(() => {
+        currentIndex = (currentIndex + 1) % images.length;
+        document.getElementById("slideImage").src = images[currentIndex];
+    }, 3000);
 }
-setInterval(changeImage, 3000);
 
 // Play music and start lanterns
 function playMusic() {
@@ -41,7 +44,9 @@ function playMusic() {
 
 // Lantern animations
 function startLanterns() {
-    setInterval(createLantern, 1000);
+    if (lanternInterval) clearInterval(lanternInterval);
+
+    lanternInterval = setInterval(createLantern, 1000);
 }
 
 function createLantern() {
