@@ -4,19 +4,25 @@ body {
     background-color: #1a1a2e;
     overflow: hidden;
     position: relative;
+    margin: 0;
+    padding: 0;
+}
+
+#content {
+    display: none;
 }
 
 .container {
-    margin-top: 100px;
+    margin-top: 50px;
 }
 
 h1 {
     color: #ffcc00;
-    font-size: 3rem;
+    font-size: 2.5rem;
 }
 
 p {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     color: #eee;
 }
 
@@ -24,16 +30,18 @@ button {
     background-color: #ff8800;
     color: white;
     border: none;
-    padding: 10px 20px;
+    padding: 12px 24px;
     font-size: 1.2rem;
     cursor: pointer;
     margin-top: 20px;
+    border-radius: 8px;
 }
 
 button:hover {
     background-color: #d86a00;
 }
 
+/* Responsive Image Slider */
 .image-gallery {
     display: flex;
     justify-content: center;
@@ -41,9 +49,9 @@ button:hover {
 }
 
 .image-gallery img {
-    width: auto;
-    height: 300px;
-    max-width: 100%;
+    width: 80%;
+    max-width: 400px;
+    height: auto;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     transition: opacity 1s ease-in-out;
@@ -133,14 +141,4 @@ button:hover {
         transform: translateY(-100vh) scale(1.2);
         opacity: 0.8;
     }
-}
-
-.lantern-top {
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
 }
