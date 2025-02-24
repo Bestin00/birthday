@@ -1,18 +1,13 @@
-/* General Styles */
 body {
     font-family: Arial, sans-serif;
     text-align: center;
     background-color: #1a1a2e;
-    margin: 0;
     overflow: hidden;
     position: relative;
-    height: 100vh;
-    width: 100vw;
 }
 
 .container {
     margin-top: 100px;
-    display: none; /* Hidden initially */
 }
 
 h1 {
@@ -25,26 +20,20 @@ p {
     color: #eee;
 }
 
-/* Button */
 button {
     background-color: #ff8800;
     color: white;
     border: none;
-    padding: 15px 25px;
+    padding: 10px 20px;
     font-size: 1.2rem;
     cursor: pointer;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 10;
+    margin-top: 20px;
 }
 
 button:hover {
     background-color: #d86a00;
 }
 
-/* Image Gallery */
 .image-gallery {
     display: flex;
     justify-content: center;
@@ -60,48 +49,137 @@ button:hover {
     transition: opacity 1s ease-in-out;
 }
 
+/* 🌹 Rose Styles */
+.rose-container {
+    position: absolute;
+    bottom: 0;
+    width: 20px;
+    opacity: 0;
+    transform: scale(0.1);
+    transition: opacity 2s ease-in-out, transform 5s ease-in-out;
+}
+
+.rose-container.left {
+    left: 10%;
+}
+
+.rose-container.right {
+    right: 10%;
+}
+
+.rose-stem {
+    width: 4px;
+    height: 120px;
+    background-color: green;
+    position: relative;
+    margin: auto;
+}
+
+.rose-leaf {
+    width: 15px;
+    height: 10px;
+    background-color: green;
+    position: absolute;
+    border-radius: 50%;
+}
+
+.rose-leaf.leaf1 {
+    top: 30px;
+    left: -10px;
+    transform: rotate(-30deg);
+}
+
+.rose-leaf.leaf2 {
+    top: 60px;
+    right: -10px;
+    transform: rotate(30deg);
+}
+
+.rose-petals {
+    width: 25px;
+    height: 25px;
+    background-color: red;
+    position: absolute;
+    border-radius: 50%;
+    top: -20px;
+    left: -5px;
+    box-shadow: 10px -5px red, -10px -5px red, 0 -10px red;
+}
+
+.rose-grow {
+    opacity: 1;
+    transform: scale(1);
+}
+
 /* ✨ Floating Lanterns */
-#lantern-container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: 5;
-    overflow: visible; /* Ensure lanterns are not cut off */
-}
-
 .lantern {
-    position: fixed;
-    bottom: -50px;
-    width: 40px;
-    height: 60px;
-    background: radial-gradient(circle, #ffcc00, #ff6600);
+    position: absolute;
+    bottom: 0;
+    width: 30px;
+    height: 50px;
+    background-color: #ff7700;
     border-radius: 10px;
-    opacity: 0.9;
-    animation: floatUp linear infinite;
+    box-shadow: 0px 0px 15px rgba(255, 165, 0, 0.8);
+    animation: rise linear infinite;
 }
 
-/* Lantern Animation */
-@keyframes floatUp {
+@keyframes rise {
     0% {
-        transform: translateY(0);
+        transform: translateY(0) scale(1);
         opacity: 1;
     }
+
     100% {
-        transform: translateY(-120vh);
-        opacity: 0;
+        transform: translateY(-100vh) scale(1.2);
+        opacity: 0.8;
     }
 }
 
-#content {
-    display: none;  /* Hidden initially */
-    opacity: 0;
-    transition: opacity 1s ease-in-out;
+.lantern-top {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-wrap: wrap;
     justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    text-align: center;
-    width: 100%;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    p {
+        font-size: 1rem;
+    }
+
+    button {
+        padding: 8px 16px;
+        font-size: 1rem;
+    }
+
+    .image-gallery img {
+        height: 200px;
+    }
+}
+
+@media (min-width: 601px) and (max-width: 1024px) {
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    p {
+        font-size: 1.2rem;
+    }
+
+    button {
+        padding: 9px 18px;
+        font-size: 1.1rem;
+    }
+
+    .image-gallery img {
+        height: 250px;
+    }
 }
