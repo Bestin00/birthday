@@ -2,21 +2,21 @@ let images = ["image1.jpg", "image2.jpg", "image3.jpg"];
 let currentIndex = 0;
 let lanternInterval;
 
+// Ensure it works on iPhone & all devices
 document.getElementById("showButton").addEventListener("click", function () {
-  // Show everything
   document.getElementById("content").style.display = "block";
-  this.style.display = "none"; // Hide the button itself
-
+  this.style.display = "none"; // Hide button
   playMusic();
 });
 
+// Change image every 3 seconds
 function changeImage() {
   currentIndex = (currentIndex + 1) % images.length;
   document.getElementById("slideImage").src = images[currentIndex];
 }
-
 setInterval(changeImage, 3000);
 
+// Play birthday song in loop
 function playMusic() {
   let song = document.getElementById("birthdaySong");
   song.play();
@@ -30,7 +30,7 @@ function playMusic() {
   startLanterns();
 }
 
-// 🌹 Function to grow a rose from both sides
+// 🌹 Grow a rose from both sides
 function growRose(side) {
   let rose = document.createElement("div");
   rose.classList.add("rose-container", side);
