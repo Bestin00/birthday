@@ -82,3 +82,4 @@ function createLantern() {
     lantern.remove();
   });
 }
+
