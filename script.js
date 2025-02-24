@@ -39,7 +39,9 @@ function startLanterns() {
 function createLantern() {
     let lantern = document.createElement("div");
     lantern.classList.add("lantern");
-    document.querySelector(".lantern-container").appendChild(lantern);
+
+    let container = document.getElementById("lantern-container");
+    container.appendChild(lantern);
 
     let xPos = Math.random() * window.innerWidth;
     lantern.style.left = `${xPos}px`;
