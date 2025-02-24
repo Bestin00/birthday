@@ -3,61 +3,82 @@ let currentIndex = 0;
 let lanternInterval;
 
 document.getElementById("showButton").addEventListener("click", function () {
-    let content = document.getElementById("content");
-    content.style.display = "flex";  // Ensures proper layout
-    setTimeout(() => {
-        content.style.opacity = "1";  // Smooth fade-in effect
-    }, 100);
+  // Show everything
+  document.getElementById("content").style.display = "block";
+  this.style.display = "none"; // Hide the button itself
 
-    document.querySelector(".container").style.display = "block"; // Show content
-    this.style.display = "none"; // Hide the button itself
-
-    let slideImage = document.getElementById("slideImage");
-    slideImage.src = images[0]; // Reset to first image
-
-    // Start slideshow only after revealing content
-    setInterval(changeImage, 3000);
-
-    playMusic();
+  playMusic();
 });
 
-// Slideshow logic
 function changeImage() {
-    currentIndex = (currentIndex + 1) % images.length;
-    document.getElementById("slideImage").src = images[currentIndex];
+  currentIndex = (currentIndex + 1) % images.length;
+  document.getElementById("slideImage").src = images[currentIndex];
 }
 
-// Play music and start lanterns
+setInterval(changeImage, 3000);
+
 function playMusic() {
-    let song = document.getElementById("birthdaySong");
+  let song = document.getElementById("birthdaySong");
+  song.play();
+  song.onended = () => {
+    song.currentTime = 0;
     song.play();
-    song.onended = () => {
-        song.currentTime = 0;
-        song.play();
-    };
+  };
 
-    startLanterns();
+  growRose("left");
+  growRose("right");
+  startLanterns();
 }
 
-// Lantern animations
+// 🌹 Function to grow a rose from both sides
+function growRose(side) {
+  let rose = document.createElement("div");
+  rose.classList.add("rose-container", side);
+
+  let stem = document.createElement("div");
+  stem.classList.add("rose-stem");
+
+  let leaf1 = document.createElement("div");
+  leaf1.classList.add("rose-leaf", "leaf1");
+
+  let leaf2 = document.createElement("div");
+  leaf2.classList.add("rose-leaf", "leaf2");
+
+  let petals = document.createElement("div");
+  petals.classList.add("rose-petals");
+
+  rose.appendChild(stem);
+  rose.appendChild(leaf1);
+  rose.appendChild(leaf2);
+  rose.appendChild(petals);
+
+  document.body.appendChild(rose);
+
+  // Animate the rose growth
+  setTimeout(() => {
+    rose.classList.add("rose-grow");
+  }, 100);
+}
+
+// 🌟 Floating Lanterns
 function startLanterns() {
-    setInterval(createLantern, 1000);
+  if (!lanternInterval) {
+    lanternInterval = setInterval(createLantern, 1000);
+  }
 }
 
 function createLantern() {
-    let lantern = document.createElement("div");
-    lantern.classList.add("lantern");
+  let lantern = document.createElement("div");
+  lantern.classList.add("lantern");
+  document.body.appendChild(lantern);
 
-    let container = document.getElementById("lantern-container");
-    container.appendChild(lantern);
+  let xPos = Math.random() * window.innerWidth;
+  lantern.style.left = `${xPos}px`;
 
-    let xPos = Math.random() * window.innerWidth;
-    lantern.style.left = `${xPos}px`;
+  let animationDuration = Math.random() * 5 + 5;
+  lantern.style.animationDuration = `${animationDuration}s`;
 
-    let animationDuration = Math.random() * 5 + 5;
-    lantern.style.animationDuration = `${animationDuration}s`;
-
-    lantern.addEventListener("animationend", () => {
-        lantern.remove();
-    });
+  lantern.addEventListener("animationend", () => {
+    lantern.remove();
+  });
 }
