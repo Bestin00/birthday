@@ -96,6 +96,10 @@ button:hover {
 }
 
 /* Hide content initially */
+/* Fix for content visibility */
 #content {
-    display: none;
+    display: none;  /* Hidden initially */
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
 }
+
