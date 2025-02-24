@@ -4,8 +4,14 @@ let lanternInterval;
 
 // Show content and start animations when button is clicked
 document.getElementById("showButton").addEventListener("click", function () {
-    document.getElementById("content").style.display = "block";
+    let content = document.getElementById("content");
+    content.style.display = "block";  
+    content.style.opacity = "1"; // Ensures content is visible
     this.style.display = "none"; // Hide the button itself
+
+    // Force images to reload
+    let slideImage = document.getElementById("slideImage");
+    slideImage.src = images[0]; // Reset to first image
 
     playMusic();
 });
