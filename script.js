@@ -24,10 +24,10 @@ function playMusic() {
     song.currentTime = 0;
     song.play();
   };
-
+  startLanterns();
   growRose("left");
   growRose("right");
-  startLanterns();
+  
 }
 
 // 🌹 Function to grow a rose from both sides
