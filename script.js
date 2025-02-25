@@ -62,8 +62,14 @@ function growRose(side) {
 
 // 🌟 Floating Lanterns
 function startLanterns() {
+  // Immediately create multiple lanterns
+  for (let i = 0; i < 10; i++) { // Increase the number if needed
+    createLantern();
+  }
+
+  // Continue generating lanterns at an interval
   if (!lanternInterval) {
-    lanternInterval = setInterval(createLantern, 100);
+    lanternInterval = setInterval(createLantern, 300); // Reduce interval to speed up appearance
   }
 }
 
