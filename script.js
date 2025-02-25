@@ -63,7 +63,7 @@ function growRose(side) {
 // 🌟 Floating Lanterns
 function startLanterns() {
   if (!lanternInterval) {
-    lanternInterval = setInterval(createLantern, 1000);
+    lanternInterval = setInterval(createLantern, 100);
   }
 }
 
