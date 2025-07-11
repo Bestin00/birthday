@@ -1,4 +1,4 @@
-let images = ["image1.jpg", "image2.jpg", "image3.jpg"];
+//let images = ["image1.jpg", "image2.jpg", "image3.jpg"];
 let currentIndex = 0;
 let lanternInterval;
 
@@ -10,12 +10,12 @@ document.getElementById("showButton").addEventListener("click", function () {
   playMusic();
 });
 
-function changeImage() {
-  currentIndex = (currentIndex + 1) % images.length;
-  document.getElementById("slideImage").src = images[currentIndex];
-}
+//function changeImage() {
+//  currentIndex = (currentIndex + 1) % images.length;
+ // document.getElementById("slideImage").src = images[currentIndex];
+//}
 
-setInterval(changeImage, 3000);
+//setInterval(changeImage, 3000);
 
 function playMusic() {
   let song = document.getElementById("birthdaySong");
