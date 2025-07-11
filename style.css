@@ -49,7 +49,7 @@ button:hover {
     transition: opacity 1s ease-in-out;
 }
 
-/* 🌹 Rose Styles */
+/*  Rose Styles */
 .rose-container {
     position: absolute;
     bottom: 0;
@@ -111,7 +111,7 @@ button:hover {
     transform: scale(1);
 }
 
-/* ✨ Floating Lanterns */
+/*  Floating Lanterns */
 .lantern {
     position: absolute;
     bottom: 0;
