@@ -60,7 +60,7 @@ function growRose(side) {
   }, 100);
 }
 
-// 🌟 Floating Lanterns
+//  Floating Lanterns
 function startLanterns() {
   // Immediately create multiple lanterns
   for (let i = 0; i < 10; i++) { // Increase the number if needed
